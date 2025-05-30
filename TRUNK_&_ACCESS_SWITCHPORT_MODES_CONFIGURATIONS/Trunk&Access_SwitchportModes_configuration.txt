@@ -1,0 +1,28 @@
+TRUNK AND ACCESS SWITCHPORT MODES CONFIGURATIONS
+
+- A switch-port can be in one of the two modes:
+	a)- Access
+	b)- Trunk
+
+- ACCESS LINK: A port that can be assigned to a single VLAN. The frames that arrive on an access port are assumed to be part of the access VLAN.
+
+- TRUNK LINK: A port that is connected to another switch. This port type can carry traffic of multiple VLANs, thus allowing you to extend VLANs across the entire network. 
+
+CONFIGURATIONS:
+
+- Access Mode:
+#Switch#en
+#Switch#conf t
+#Switch#int fa0/3
+#Switch#switchport mode access
+#Switch#exit
+
+- Trunk Mode:
+#Switch#en
+#Switch#conf t
+#Switch#int fa0/1
+#Switch#switchport mode trunk
+#Switch#exit
+
+
+
