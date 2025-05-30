@@ -1,0 +1,40 @@
+TELNET AND SSH CONFIGURATIONS(REMOTE DEVICE ACCESS)
+
+How to configure Telnet and SSH:
+WAYS TO CONFIGURE NETWORKING DEVICES -:
+	- Locally using the Line Console (Through Console port and console cables).
+	- Remotely using Line VTY (Through Telnet or SSH protocols).
+
+REMOTE ACCESS AND CONFIGURATION:
+	- To use Telnet/SSH, you must have a software(Telnet/SSH client) installed eg Putty. 
+	- On the Remote Device, a Telnet/SSH server must be installed and running.
+
+TELNET-:
+	- TCP port 23
+	- All data, including Usernames and Passwords, is sent in cleartext/plaintext-insecure.
+	- Rarely used today.
+
+SSH-:
+	- TCP port 22
+	- Uses encryption and Authentication, hence all data transmitted over the network is secure.
+	- Most used today.
+
+
+CONFIGURING TELNET ON A DEVICE:
+	-sw#en
+	-sw#conf t
+	-sw#line vty 0 15
+	-sw#password Cisco@123
+	-sw#login
+	-sw#do write
+	-sw#exit
+
+CONFIGURING SSH:
+	a) setup a hostname eg hostname R1
+	b) setup a domain name eg ip domain-name GTECH
+	c) configure local username and password eg username GTECH password Cisco@123
+	d) generate RSA public and private keys. eg crypo key generate rsa
+	e) Allow only SSH access:(the following commands disable telnet and enables SSH)
+		- R1# line vty 0 15
+		- R1# login local
+		- R1# transport input ssh
